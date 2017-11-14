@@ -44,6 +44,7 @@ function printType(item){
 }
 
 /*5. Function that is capable of identify if the passed string is a palindrome or not */
+/*Loops*/
 function isPalindrome(str){
     var cnt=0;
     var result=false;
@@ -58,6 +59,11 @@ function isPalindrome(str){
     return result;
 }
 
+/*Array methods*/
+function functionalisPalindrome(str){
+    return str===str.split('').reverse().join('');
+}
+
 
 /*6. Class in Javascript that represents a person capable of having “name” and “age” as instance variables*/
 class Person{
@@ -68,13 +74,13 @@ class Person{
     printName(){
         console.log(this.name);
     }
-    printAge(){
-        console.log(this.age);
+    get Age(){
+        return this.age;
     }
 }
 
 function printOutPersonAge(person){
-    person.printAge();
+    console.log(person.Age);
 }
 
 /* Function invocation */
@@ -89,9 +95,10 @@ printType('1');
 printType([1]);
 
 console.log(isPalindrome("anitalavalatina"));
+console.log(functionalisPalindrome("julioiluj"));
 
 const student=new Person('Julio',25);
 student.printName();
-student.printAge();
+console.log(student.Age);
 
 printOutPersonAge(student);
