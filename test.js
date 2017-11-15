@@ -1,5 +1,5 @@
 /*1. Function that is capable of generate a random RGB color object*/
-function generateRandomNumber(){
+export function generateRandomColor(){
     return {
         "R":Math.floor(Math.random()*255),
         "G":Math.floor(Math.random()*255),
@@ -9,7 +9,7 @@ function generateRandomNumber(){
 
 /*2. Function that is capable of filtering out numbers less than 0 from an array of numbers*/
 /*Loops*/
-function filterNegativeNumbers(arr){
+export function filterNegativeNumbers(arr){
     const arr2=[];
     for(i=0;i<arr.length;i++){
         if (arr[i]>=0){
@@ -19,13 +19,13 @@ function filterNegativeNumbers(arr){
     return arr2;
 }
 /*Array methods*/
-function functionalfilterNegativeNumbers(arr){
+export function functionalfilterNegativeNumbers(arr){
     return arr.filter(function(item){return item >= 0;})    
 }
 
 /*3. Function that is capable of maping an array of numbers into strings*/
 /*Loops*/
-function mapNumbersIntoStrings(arr){
+export function mapNumbersIntoStrings(arr){
     const arr2=[];
     for(i=0;i<arr.length;i++){
             arr2.push(arr[i].toString());
@@ -34,39 +34,43 @@ function mapNumbersIntoStrings(arr){
 }
 
 /*Array methods*/
-function functionalmapNumbersIntoStrings(arr){
+export function functionalmapNumbersIntoStrings(arr){
     return arr.map(function(item){return item.toString()})
 }
 
 /*4. Create a function that is capable of printing into the console the type of the passed variable*/
-function printType(item){
+export function printType(item){
     console.log(typeof item);
 }
 
 /*5. Function that is capable of identify if the passed string is a palindrome or not */
 /*Loops*/
-function isPalindrome(str){
+export function isPalindrome(str){
+    var str2=str.replace(/[^aA-z0-9]/ig,'');
+    str2=str2.toLowerCase();
     var cnt=0;
     var result=false;
-    for(i=0;i<(Math.floor(str.length/2));i++){
-        if(str[i]===str[str.length-i-1]){
+    for(i=0;i<(Math.floor(str2.length/2));i++){
+        if(str2[i]===str2[str2.length-i-1]){
             cnt++;
         }
     }
-    if(cnt==Math.floor(str.length/2)){
+    if(cnt==Math.floor(str2.length/2)){
         result=true;
     }
     return result;
 }
 
 /*Array methods*/
-function functionalisPalindrome(str){
-    return str===str.split('').reverse().join('');
+export function functionalisPalindrome(str){
+    var str2=str.replace(/[^aA-z0-9]/ig,'');
+    str2=str2.toLowerCase();
+    return str2===str2.split('').reverse().join('');
 }
 
 
 /*6. Class in Javascript that represents a person capable of having “name” and “age” as instance variables*/
-class Person{
+export class Person{
     constructor(name,age){
     this.name=name;
     this.age=age;
@@ -79,26 +83,6 @@ class Person{
     }
 }
 
-function printOutPersonAge(person){
+export function printOutPersonAge(person){
     console.log(person.Age);
 }
-
-/* Function invocation */
-console.log(generateRandomNumber());
-console.log(filterNegativeNumbers([-4, -6, -5, 0, 34, 54, -7]));
-console.log(functionalfilterNegativeNumbers([3, -6, 5, 0, 34, 54, -7]));
-console.log(mapNumbersIntoStrings([-4, -6, -5, 0, 34, 54, -7]));
-console.log(functionalmapNumbersIntoStrings([32, 0, -12, 4, 54, -7]));
-
-printType(1);
-printType('1');
-printType([1]);
-
-console.log(isPalindrome("anitalavalatina"));
-console.log(functionalisPalindrome("julioiluj"));
-
-const student=new Person('Julio',25);
-student.printName();
-console.log(student.Age);
-
-printOutPersonAge(student);
