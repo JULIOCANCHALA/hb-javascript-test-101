@@ -1,15 +1,16 @@
 /*1. Function that is capable of generate a random RGB color object*/
 export function generateRandomColor(){
     return {
-        "R":Math.floor(Math.random()*255),
-        "G":Math.floor(Math.random()*255),
-        "B":Math.floor(Math.random()*255)
+        "r":Math.floor(Math.random()*255),
+        "g":Math.floor(Math.random()*255),
+        "b":Math.floor(Math.random()*255)
     };
 }
 
 /*2. Function that is capable of filtering out numbers less than 0 from an array of numbers*/
 /*Loops*/
 export function filterNegativeNumbers(arr){
+    var i=0;
     const arr2=[];
     for(i=0;i<arr.length;i++){
         if (arr[i]>=0){
@@ -26,6 +27,7 @@ export function functionalfilterNegativeNumbers(arr){
 /*3. Function that is capable of maping an array of numbers into strings*/
 /*Loops*/
 export function mapNumbersIntoStrings(arr){
+    var i=0;
     const arr2=[];
     for(i=0;i<arr.length;i++){
             arr2.push(arr[i].toString());
@@ -34,7 +36,7 @@ export function mapNumbersIntoStrings(arr){
 }
 
 /*Array methods*/
-export function functionalmapNumbersIntoStrings(arr){
+export function functionalMapNumbersIntoStrings(arr){
     return arr.map(function(item){return item.toString()})
 }
 
@@ -46,6 +48,7 @@ export function printType(item){
 /*5. Function that is capable of identify if the passed string is a palindrome or not */
 /*Loops*/
 export function isPalindrome(str){
+    var i=0;
     var str2=str.replace(/[^aA-z0-9]/ig,'');
     str2=str2.toLowerCase();
     var cnt=0;
