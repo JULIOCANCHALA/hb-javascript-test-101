@@ -6,7 +6,9 @@ import{
     functionalMapNumbersIntoStrings,
     printType,
     isPalindrome,
-    functionalisPalindrome
+    functionalisPalindrome,
+    Person,
+    printOutPersonAge
 }from './index.js';
 
 describe('generateRandomColor',()=>{
@@ -102,17 +104,17 @@ describe('isPalindrome', () => {
     });
 });
 
-//****************FUNCIONES FALTANTES
+//****************FUNCIONES POR REVISAR
 
-describe('Person', () => {
+describe('Class Person', () => {
     let personInstance;
 
     beforeAll(() => {
         personInstance = new Person('John', 100);
 
         global.console = {
-            log: jest.fn()
-        }; // Creating a spy function for the console.log
+            log: jest.fn() // Creating a spy function for the console.log
+        };
     });
 
     it('should return an instance with the correct values when calling it as a constructor', () => {
