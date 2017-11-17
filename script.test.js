@@ -18,7 +18,7 @@ describe('generateRandomColor', () => {
             g: expect.any(Number),
             b: expect.any(Number)
         }
-        expect(generateRandomColor()).toMatchObject(aux);
+        expect(generateRandomColor()).toMatchObject(aux); //to Check that a JavaScript object matches a subset of the properties of an object
     });
 });
 
@@ -85,8 +85,8 @@ describe('mapNumbersIntoStrings', () => {
 describe('printType', () => {
     beforeEach(() => {
         console = {
-                log: jest.fn() //recibe los parametros que recibe la funcion console.log
-            } //hago esto para con la esa nueva funcion que reescribio al console.log saber si la llamaron y con que parametro la llamaron
+            log: jest.fn() // Spy function for the console.log
+        }
     })
 
     it('show type of input', () => {
@@ -97,7 +97,7 @@ describe('printType', () => {
 
 describe('isPalindrome', () => {
     it('show true with a palindrome word', () => {
-        expect(isPalindrome('maadaam')).toBeTruthy();
+        expect(isPalindrome('maadaam')).toBeTruthy(); //.toBeTruthy is for to ensure a value is true. 
         expect(functionalisPalindrome('maadaam')).toBeTruthy();
     });
     it('show true with a palindrome phrase', () => {
@@ -106,41 +106,39 @@ describe('isPalindrome', () => {
     });
 });
 
-//****************FUNCIONES POR REVISAR
-
 describe('Class Person', () => {
-    let personInstance;
+    let newperson;
 
-    beforeAll(() => {
-        personInstance = new Person('John', 100);
+    beforeEach(() => {
+        newperson = new Person('Julio', 22); //Creating Person for use later in two instances
 
         global.console = {
-            log: jest.fn() // Creating a spy function for the console.log
+            log: jest.fn() // Spy function for the console.log
         };
     });
 
-    it('should return an instance with the correct values when calling it as a constructor', () => {
-        expect(personInstance).toMatchObject({
-            name: 'John',
-            age: 100
+    it('verifying constructor', () => {
+        expect(newperson).toMatchObject({
+            name: 'Julio',
+            age: 22
         });
     });
 
-    it('should print the Person instance name in the console', () => {
-        personInstance.printName();
-        expect(global.console.log).toHaveBeenCalledWith('John');
+    it('should show name in the console', () => {
+        newperson.printName();
+        expect(global.console.log).toHaveBeenCalledWith('Julio'); //spy function called with 'John'
     });
 });
 
 describe('printOutPersonAge', () => {
     beforeEach(() => {
         global.console = {
-                log: jest.fn()
-            } // Creating a spy function for the console.log
+            log: jest.fn() // Spy function for the console.log
+        }
     });
 
-    it('should print in console the age of the given instance', () => {
-        printOutPersonAge(new Person('John', 100));
-        expect(global.console.log).toHaveBeenCalledWith(100);
+    it('should show the age in the console', () => {
+        printOutPersonAge(new Person('Julio', 22));
+        expect(global.console.log).toHaveBeenCalledWith(22); //spy function called with '100'
     });
 });
