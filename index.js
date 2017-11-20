@@ -52,7 +52,9 @@ export function isPalindrome(str) {
     var str2 = str.toLowerCase().replace(/[^aA-z0-9]/ig, '');
     var cnt = 0;
     var result = false;
-    for (i = 0; i < (Math.floor(str2.length / 2)); i++) {
+    var aux=Math.floor(str2.length / 2);
+    console.log(aux);
+    for (i = 0; i < aux; i++) {
         if (str2[i] === str2[str2.length - i - 1]) {
             cnt++;
         }

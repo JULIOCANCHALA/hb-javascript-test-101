@@ -104,6 +104,10 @@ describe('isPalindrome', () => {
         expect(isPalindrome("A man, a plan, a canal. Panama")).toBeTruthy();
         expect(functionalisPalindrome("A man, a plan, a canal. Panama")).toBeTruthy();
     });
+    it('show false with a palindrome phrase', () => {
+        expect(isPalindrome("A man, a ppoiklan, a canal. Panama")).toBeFalsy();
+        expect(functionalisPalindrome("A man, a ppoilan, a canal. Panama")).toBeFalsy();
+    });
 });
 
 describe('Class Person', () => {
